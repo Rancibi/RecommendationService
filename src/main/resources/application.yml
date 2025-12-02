@@ -1,0 +1,26 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: RecommendationService
+  profiles:
+    active: prod
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/Edufy_Realm
+
+logging:
+  file:
+    name: logs/recommendationservice.log
+  level:
+    root: INFO
+
+jwt:
+  auth:
+    converter:
+      resource-id:
+        name: Edufy_Client
+      principal-attribute: preferred_username
