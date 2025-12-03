@@ -40,7 +40,7 @@ public class RecommendationService {
                 .map(PlayDTO::mediaId)
                 .collect(Collectors.toSet());
 
-        log.debug("User {} has played {} media items", playedMedia.size());
+        log.debug("User {} has played {} media items", userId, playedMedia.size());
 
         // 2. FETCH RATINGS (DISLIKES)
         List<RatingDTO> ratings = ratingClient.getRatingsForUser(userId, jwt);
