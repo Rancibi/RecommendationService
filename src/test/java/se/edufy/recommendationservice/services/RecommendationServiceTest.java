@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import se.edufy.recommendationservice.clients.MediaClient;
 import se.edufy.recommendationservice.clients.PlayClient;
 import se.edufy.recommendationservice.clients.RatingClient;
+import se.edufy.recommendationservice.dtos.ArtistDTO;
 import se.edufy.recommendationservice.dtos.MediaDetailsDTO;
 import se.edufy.recommendationservice.dtos.PlayDTO;
 import se.edufy.recommendationservice.dtos.RatingDTO;
@@ -42,18 +43,19 @@ class RecommendationServiceTest {
     @BeforeEach
     void setUp() {
         allMedia = List.of(
-                new MediaDetailsDTO(1L, "Media 1", List.of("Action"), List.of("Artist A")),
-                new MediaDetailsDTO(2L, "Media 2", List.of("Comedy"), List.of("Artist B")),
-                new MediaDetailsDTO(3L, "Media 3", List.of("Action", "Thriller"), List.of("Artist C")),
-                new MediaDetailsDTO(4L, "Media 4", List.of("Horror"), List.of("Artist D")),
-                new MediaDetailsDTO(5L, "Media 5", List.of("Comedy"), List.of("Artist E")),
-                new MediaDetailsDTO(6L, "Media 6", List.of("Drama"), List.of("Artist F")),
-                new MediaDetailsDTO(7L, "Media 7", List.of("Action"), List.of("Artist G")),
-                new MediaDetailsDTO(8L, "Media 8", List.of("Thriller"), List.of("Artist H")),
-                new MediaDetailsDTO(9L, "Media 9", List.of("Action"), List.of("Artist I")),
-                new MediaDetailsDTO(10L, "Media 10", List.of("Comedy"), List.of("Artist J"))
+                new MediaDetailsDTO(1L, "Media 1", List.of("Action"), List.of(new ArtistDTO(1L, "Artist A"))),
+                new MediaDetailsDTO(2L, "Media 2", List.of("Comedy"), List.of(new ArtistDTO(2L, "Artist B"))),
+                new MediaDetailsDTO(3L, "Media 3", List.of("Action", "Thriller"), List.of(new ArtistDTO(3L, "Artist C"))),
+                new MediaDetailsDTO(4L, "Media 4", List.of("Horror"), List.of(new ArtistDTO(4L, "Artist D"))),
+                new MediaDetailsDTO(5L, "Media 5", List.of("Comedy"), List.of(new ArtistDTO(5L, "Artist E"))),
+                new MediaDetailsDTO(6L, "Media 6", List.of("Drama"), List.of(new ArtistDTO(6L, "Artist F"))),
+                new MediaDetailsDTO(7L, "Media 7", List.of("Action"), List.of(new ArtistDTO(7L, "Artist G"))),
+                new MediaDetailsDTO(8L, "Media 8", List.of("Thriller"), List.of(new ArtistDTO(8L, "Artist H"))),
+                new MediaDetailsDTO(9L, "Media 9", List.of("Action"), List.of(new ArtistDTO(9L, "Artist I"))),
+                new MediaDetailsDTO(10L, "Media 10", List.of("Comedy"), List.of(new ArtistDTO(10L, "Artist J")))
         );
     }
+
 
     @Test
     void testRecommendations_basicFlow() {

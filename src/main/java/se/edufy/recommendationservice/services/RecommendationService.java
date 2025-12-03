@@ -1,7 +1,7 @@
 package se.edufy.recommendationservice.services;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import se.edufy.recommendationservice.clients.*;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @Service
 public class RecommendationService {
 
-    private static final Logger log = LogManager.getLogger("RecommendationLogger");
+    private static final Logger log = LoggerFactory.getLogger("RecommendationLogger");
 
     private final RatingClient ratingClient;
     private final PlayClient playClient;

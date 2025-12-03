@@ -6,5 +6,5 @@ public record MediaDetailsDTO(
         Long id,
         String title,
         List<String> genres,
-        List<String> artists
+        List<ArtistDTO> artists
 ) {}
